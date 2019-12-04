@@ -18,6 +18,16 @@ router.get('/work', (req, res) => {
   res.render('work');
 });
 
+
+
+router.get('/contact', (req, res) => {
+
+  console.log('at the main route')
+
+  res.render('contact');
+});
+
+
 module.exports = router;
 
 
