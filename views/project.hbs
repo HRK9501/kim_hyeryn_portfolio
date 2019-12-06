@@ -1,0 +1,22 @@
+<section class="projectCon">
+        <!-- loop through all our team members and put their info on the page -->
+
+        {{#each projects}}
+            <img src="/images/{{HeaderImg}}" alt="face img" class="promain">
+
+        <div class="projectbody">
+
+            <h1>{{ProjectTitle}}</h1>
+            <p>{{ProjectText}}</p>
+
+            <video controls>
+                <source src="/images/{{BodyVideo}}" type="video/mp4">
+            </video>
+
+            <img src="/images/{{BodyImg}}" alt="projects img" class="proimg">
+
+        </div>
+
+        {{/each}}
+        
+</section>

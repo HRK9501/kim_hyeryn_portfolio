@@ -1,2 +1,20 @@
-<h1>Hello</h1>
-<h1>Bye</h1>
+<section class="workCon">
+    <div class="work">
+        <!-- loop through all our team members and put their info on the page -->
+
+        {{#each works}}
+
+        <div class="user-panel">
+                <a href="/work/{{faceID}}">
+                    <img src="images/{{FaceImg}}" alt="face img" class="u-faceimg">
+                </a>
+
+            <h1>{{FaceTitle}}</h1>
+            <h3>{{category}}</h3>
+
+        </div>
+
+        {{/each}}
+        
+    </div>
+</section>
