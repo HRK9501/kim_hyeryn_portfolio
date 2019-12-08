@@ -1,7 +1,7 @@
 const config = {
     port: 'us-cdbr-iron-east-05.cleardb.net',
     user:'bee03f7ce6a912',
-    password:'d7cb854b',
+    password:'',
     database: 'heroku_597faddc4fef187'
 }
 
