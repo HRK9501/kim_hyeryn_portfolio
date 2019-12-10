@@ -23,11 +23,11 @@ router.get('/', (req, res) => {
 });
 
 
-router.get('/work', (req, res) => {
+router.get('/work', (req, res, next) => {
   // should really get the user data here and then fetch it thru, but let's try this asynchronously
   console.log('at the work route');
 
-  let query = "SELECT ID, FaceImg, FaceTitle, category, faceID FROM tbl_face ";
+  let query = "SELECT ID, HeaderImg, ProjectTitle FROM tbl_project";
 
   sql.query(query, (err, result) => {
       if (err) { throw err; console.log(err); }
@@ -40,18 +40,21 @@ router.get('/work', (req, res) => {
 });
 
 
-router.get('/work/:work', (req, res) => {
+router.get('/work/:id', (req, res) => {
 
   console.log('at the project route')
+  console.log(req.params.id)
+ 
 
-  let query = "SELECT ID, HeaderImg, ProjectTitle, ProjectText, BodyVideo, BodyImg FROM tbl_project";
+  let query = `SELECT * FROM tbl_project WHERE ID = "${req.params.id}"`;
 
   sql.query(query, (err, result) => {
     if (err) { throw err; console.log(err); }
 
     console.log(result);
-
-    res.render('project', {projects: result});
+     
+    res.render('project');
+  
   })
 });
 
