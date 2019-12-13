@@ -30,21 +30,21 @@ router.get('/work', (req, res, next) => {
   let query = `SELECT ID, HeaderImg, ProjectTitle FROM tbl_project`;
 
   sql.query(query, (err, result) => {
-      if (err) { throw err; console.log(err); }
+    if (err) { throw err; console.log(err); }
 
-      console.log(result); // should see objects wrapped in an array
+    console.log(result); // should see objects wrapped in an array
 
-      // render the home view with dynamic data
-      res.render('work', { works: result });
+    // render the home view with dynamic data
+    res.render('work', { works: result });
   })
 });
 
 
-router.get('/work/:ID', (req, res) => {
+router.get('/work/:id', (req, res) => {
 
-  console.log('at the project route')
-  console.log(req.params.id)
- 
+  console.log('199k9oko');
+  console.log(req.params);
+
 
   let query = `SELECT * FROM tbl_project WHERE ID = "${req.params.id}"`;
 
@@ -52,22 +52,26 @@ router.get('/work/:ID', (req, res) => {
     if (err) { throw err; console.log(err); }
 
     console.log(result);
-     
-    res.render('project');
-  
+
+
+    result[0].images = result[0].BodyImg.split(",").map(function (item) {
+      item = item.trim();
+
+      return item;
+    })
+    res.render('project', result[0]);
   })
-});
+});  
 
 
 
 
+  router.get('/contact', (req, res) => {
 
-router.get('/contact', (req, res) => {
+    console.log('at the contact route')
 
-  console.log('at the contact route')
-
-  res.render('contact');
-});
+    res.render('contact');
+  });
 
 
-module.exports = router;
+  module.exports = router;

@@ -1,6 +1,6 @@
 <section class="projectCon">
 
-        <img src="images/{{HeaderImg}}" alt="face img" class="promain">
+        <img src="/images/{{HeaderImg}}" alt="face img" class="promain">
         <div class="projectbody">
 
             <h1>{{ProjectTitle}}</h1>
@@ -10,7 +10,9 @@
                 <source src="/images/{{BodyVideo}}" type="video/mp4">
             </video>
 
-            <img src="/images/{{BodyImg}}" alt="projects img" class="proimg">
+            {{#each images as |item|}}
+                <img src="/images/{{this}}" alt="projects img" class="proimg">
+            {{/each}}
 
         </div>
         
