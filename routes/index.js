@@ -42,7 +42,7 @@ router.get('/work', (req, res, next) => {
 
 router.get('/work/:id', (req, res) => {
 
-  console.log('199k9oko');
+  console.log('at the project route');
   console.log(req.params);
 
 
